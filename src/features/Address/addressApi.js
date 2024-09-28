@@ -2,7 +2,7 @@ import axios from "axios"
 import { BASE_URL } from "../../app/constant"
 export async function createAddress(addressData) {
   try {
-    const response = await axios.post(`${BASE_URL}/api/address`, addressData)
+    const response = await axios.post(`/api/address`, addressData)
     const data = response.data
     return (data)
   } catch (error) {
@@ -12,7 +12,7 @@ export async function createAddress(addressData) {
 
 export async function getAddress() {
   try {
-    const response = await axios.get(`${BASE_URL}/api/address`)
+    const response = await axios.get(`/api/address`)
     const data = response.data
     return (data)
   } catch (error) {
@@ -23,7 +23,7 @@ export async function getAddress() {
 
 export async function updateAddress(addressData) {
   try {
-    const response = await axios.patch(`${BASE_URL}/api/address/${addressData._id}`, addressData)
+    const response = await axios.patch(`/api/address/${addressData._id}`, addressData)
     console.log(response)
     const data = response.data
     return data
@@ -34,7 +34,7 @@ export async function updateAddress(addressData) {
 
 export async function removeAddress(addressId) {
   try {
-    const response = await axios.delete(`${BASE_URL}/api/address/${addressId}`)
+    const response = await axios.delete(`/api/address/${addressId}`)
     const data = response.data
     return (data)
   } catch (error) {
