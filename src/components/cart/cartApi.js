@@ -3,7 +3,9 @@ import { BASE_URL } from "../../app/constant"
 
 export async function addToCart(items) {
   try {
-    const response = await axios.post(`${BASE_URL}/api/cart/items`, items)
+    const response = await axios.post(`${BASE_URL}/api/cart/items`, items, {
+      withCredentials: true
+    })
     const data = response.data
     return data
   } catch (error) {
