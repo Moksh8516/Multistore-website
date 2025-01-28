@@ -3,7 +3,9 @@ import { BASE_URL } from "../../app/constant"
 
 export const createOrder = async (order) => {
   try {
-    const response = await axios.post(`/api/order`, order)
+    const response = await axios.post(`${BASE_URL}/api/order`, order, {
+      withCredentials: true,
+    })
     const data = response.data
     return data
   } catch (error) {
@@ -13,8 +15,10 @@ export const createOrder = async (order) => {
 
 export const fetchOrder = async (id) => {
   try {
-    const response = await axios.get(`/api/order`, id)
-    console.log(response)
+    const response = await axios.post(`${BASE_URL}/api/order/getorder`, id, {
+      withCredentials: true,
+    })
+    // console.log(response)
     return response.data
   } catch (error) {
     console.error(error)

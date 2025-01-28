@@ -7,7 +7,7 @@ export default defineConfig({
   envPrefix: 'REACT_APP_',
   server: {
     proxy: {
-      '/api': "http://localhost:4040"
+      // '/api': "http://localhost:4040"
     }
   }
 })

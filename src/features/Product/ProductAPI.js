@@ -2,7 +2,9 @@ import axios from "axios";
 import { BASE_URL } from "../../app/constant";
 export async function fetchAllProducts() {
   try {
-    const response = await axios.get(`/api/product`);
+    const response = await axios.get(`${BASE_URL}/api/product`, {
+      withCredentials: true,
+    });
     const data = response.data;
     return { data }
   } catch (error) {
@@ -12,7 +14,9 @@ export async function fetchAllProducts() {
 
 export async function fetchProductById(id) {
   try {
-    const response = await axios.get(`/api/product/${id}`)
+    const response = await axios.get(`${BASE_URL}/api/product/${id}`, {
+      withCredentials: true,
+    })
     const data = response.data;
     return (data)
   } catch (error) {
@@ -22,7 +26,9 @@ export async function fetchProductById(id) {
 
 export async function fetchCategory() {
   try {
-    const response = await axios.get(`/api/categories`)
+    const response = await axios.get(`${BASE_URL}/api/categories`, {
+      withCredentials: true,
+    })
     const data = response.data
     return (data)
   } catch (error) {
@@ -32,7 +38,9 @@ export async function fetchCategory() {
 
 export async function fetchBrand() {
   try {
-    const response = await axios.get(`/api/brands`)
+    const response = await axios.get(`${BASE_URL}/api/brands`, {
+      withCredentials: true,
+    })
     const data = response.data
     return (data)
   } catch (error) {
@@ -56,7 +64,9 @@ export async function fetchProductsByFilter(values, sort, pagination) {
   }
 
   try {
-    const response = await axios.get(`/api/product?${queryString}`);
+    const response = await axios.get(`${BASE_URL}/api/product?${queryString}`, {
+      withCredentials: true,
+    });
     const data = response.data;
     return (data)
   } catch (error) {
