@@ -2,9 +2,7 @@ import axios from "axios";
 import { BASE_URL } from "../../app/constant"
 export async function fetchAllProducts() {
   try {
-    const response = await axios.get(`${BASE_URL}/api/product`, {
-      withCredentials: true,
-    });
+    const response = await axios.get(`${BASE_URL}/api/product`);
     const data = response;
     console.log(data)
     return { data }
@@ -15,9 +13,7 @@ export async function fetchAllProducts() {
 
 export async function fetchProductById(id) {
   try {
-    const response = await axios.get(`${BASE_URL}/api/product/${id}`, {
-      withCredentials: true,
-    })
+    const response = await axios.get(`${BASE_URL}/api/product/${id}`)
     const data = response.data;
     return (data)
   } catch (error) {
@@ -27,9 +23,7 @@ export async function fetchProductById(id) {
 
 export async function fetchCategory() {
   try {
-    const response = await axios.get(`${BASE_URL}/api/categories`, {
-      withCredentials: true,
-    })
+    const response = await axios.get(`${BASE_URL}/api/categories`)
     const data = response.data
     return (data)
   } catch (error) {
@@ -39,9 +33,7 @@ export async function fetchCategory() {
 
 export async function fetchBrand() {
   try {
-    const response = await axios.get(`${BASE_URL}/api/brands`, {
-      withCredentials: true,
-    })
+    const response = await axios.get(`${BASE_URL}/api/brands`)
     const data = response.data
     return (data)
   } catch (error) {
@@ -65,11 +57,8 @@ export async function fetchProductsByFilter(values, sort, pagination) {
   }
 
   try {
-    const response = await axios.get(`${BASE_URL}/api/product?${queryString}`, {
-      withCredentials: true,
-    });
-    const data = response;
-    console.log(data)
+    const response = await axios.get(`${BASE_URL}/api/product?${queryString}`);
+    const data = response.data;
     return (data)
   } catch (error) {
     console.error("Error in fetchProductsByFilter Section", error)

@@ -1,9 +1,3 @@
 {
-  "version":2,
-  "rewrites": [
-    {
-     "source": "/api/(.*)",
-      "destination":  "https://multistore-ecommerce-app.vercel.app"
-    }
-  ]
+  "version": 2
 }
