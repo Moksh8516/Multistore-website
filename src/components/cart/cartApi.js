@@ -15,7 +15,9 @@ export async function addToCart(items) {
 
 export async function fecthItemsByUserId() {
   try {
-    const response = await axios.get(`${BASE_URL}/api/cart`)
+    const response = await axios.get(`${BASE_URL}/api/cart`, {
+      withCredentials: true
+    })
     const data = response.data
     // console.log(response.data)
     return data;
