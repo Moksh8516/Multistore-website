@@ -103,7 +103,7 @@ function ProductList() {
   const handleFilter = (e, section, option) => {
     // update according to backend
     const newFilter = { ...filter };
-    console.log(e.target.checked);
+    // console.log(e.target.checked);
     if (e.target.checked) {
       newFilter[section.id] = option.value;
     } else {
@@ -124,7 +124,7 @@ function ProductList() {
 
   useEffect(() => {
     const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
-    console.log(pagination);
+    // console.log(pagination);
     dispatch(fetchProductsByFilterAsync({ filter, sort, pagination }));
   }, [dispatch, filter, sort, page]);
 

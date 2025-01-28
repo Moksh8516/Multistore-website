@@ -1,11 +1,12 @@
 import axios from "axios";
-import { BASE_URL } from "../../app/constant";
+import { BASE_URL } from "../../app/constant"
 export async function fetchAllProducts() {
   try {
     const response = await axios.get(`${BASE_URL}/api/product`, {
       withCredentials: true,
     });
-    const data = response.data;
+    const data = response;
+    console.log(data)
     return { data }
   } catch (error) {
     console.error("fectAllProducts", error)
@@ -67,7 +68,8 @@ export async function fetchProductsByFilter(values, sort, pagination) {
     const response = await axios.get(`${BASE_URL}/api/product?${queryString}`, {
       withCredentials: true,
     });
-    const data = response.data;
+    const data = response;
+    console.log(data)
     return (data)
   } catch (error) {
     console.error("Error in fetchProductsByFilter Section", error)
