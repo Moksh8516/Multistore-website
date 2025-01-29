@@ -2,9 +2,11 @@ import axios from "axios";
 import { BASE_URL } from "../../app/constant"
 export async function fetchAllProducts() {
   try {
-    const response = await axios.get(`${BASE_URL}/api/product`);
+    const response = await axios.get(`${BASE_URL}/api/product`, {
+      withCredentials: true,
+    });
     const data = response;
-    console.log(data)
+    // console.log(data)
     return { data }
   } catch (error) {
     console.error("fectAllProducts", error)

@@ -28,7 +28,6 @@ import OrderSucess from "../Pages/order/OrderSucess";
 import Cancel from "../Pages/Cancel";
 import Protected from "../components/auth/Protected";
 import MyProfile from "../Pages/MyProfile";
-import Test from "../Pages/Test";
 
 function CustomerRoutes() {
   return (
@@ -86,7 +85,6 @@ function CustomerRoutes() {
       />
 
       <Route path="/login" element={<Login />} />
-      <Route path="/test" element={<Test />} />
       <Route path="/logout" element={<Signout />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/forget-Password" element={<ForgetPassword />} />

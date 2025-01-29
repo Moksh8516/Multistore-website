@@ -44,7 +44,9 @@ export async function checkUser(userData) {
 
 export async function logout() {
   try {
-    const response = await axios.post(`${BASE_URL}/api/v1/user/logout`)
+    const response = await axios.post(`${BASE_URL}/api/v1/user/logout`, {}, {
+      withCredentials: true,
+    })
     const data = response.data;
     return { data }
   } catch (error) {
@@ -87,7 +89,9 @@ export async function ResetPassword(newPassword) {
 
 export async function updateProfile(data) {
   try {
-    const response = await axios.patch(`${BASE_URL}/api/v1/user/update-profile`, data)
+    const response = await axios.patch(`${BASE_URL}/api/v1/user/update-profile`, data, {
+      withCredentials: true,
+    })
     const data = response.data
     return (data)
   } catch (error) {
@@ -101,7 +105,9 @@ export async function updateProfile(data) {
 
 export async function updatePassword(data) {
   try {
-    const response = await axios.patch(`${BASE_URL}/api/v1/user/update-password`, data)
+    const response = await axios.patch(`${BASE_URL}/api/v1/user/update-password`, data, {
+      withCredentials: true,
+    })
     return (response)
   } catch (error) {
     if (error.response) {
@@ -114,7 +120,9 @@ export async function updatePassword(data) {
 
 export async function updateProfileImage(data) {
   try {
-    const response = await axios.patch(`${BASE_URL}/api/v1/user/update-profile-image`, data)
+    const response = await axios.patch(`${BASE_URL}/api/v1/user/update-profile-image`, data, {
+      withCredentials: true,
+    })
     const data = response.data
     return (data)
   } catch (error) {
@@ -139,7 +147,9 @@ export async function getProfile() {
 
 export async function reLoginUser() {
   try {
-    const response = await axios.post(`${BASE_URL}/api/v1/user/refresh-token`)
+    const response = await axios.post(`${BASE_URL}/api/v1/user/refresh-token`, {}, {
+      withCredentials: true,
+    })
     return (response.data)
   } catch (error) {
     if (error.response) {
