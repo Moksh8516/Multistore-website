@@ -29,7 +29,7 @@ export async function fecthItemsByUserId() {
 export async function updateCart(id) {
 
   try {
-    const response = await axios.patch(`${BASE_URL}/api/cart/items/${id}`, {
+    const response = await axios.patch(`${BASE_URL}/api/cart/items/${id}`, {}, {
       withCredentials: true
     })
     const data = response.data

@@ -28,7 +28,9 @@ export async function createUser(userData) {
 
 export async function checkUser(userData) {
   try {
-    const response = await axios.post(`${BASE_URL}/api/v1/user/login`, userData)
+    const response = await axios.post(`${BASE_URL}/api/v1/user/login`, userData, {
+      withCredentials: true
+    })
     const data = response.data
     return data
   } catch (error) {
@@ -126,7 +128,9 @@ export async function updateProfileImage(data) {
 
 export async function getProfile() {
   try {
-    const response = await axios.get(`${BASE_URL}/api/v1/user/profile`)
+    const response = await axios.get(`${BASE_URL}/api/v1/user/profile`, {
+      withCredentials: true
+    })
     return (response.data)
   } catch (error) {
     console.error(error)
