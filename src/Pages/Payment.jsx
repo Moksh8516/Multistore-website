@@ -7,7 +7,7 @@ import {
 import { loadStripe } from "@stripe/stripe-js";
 import { selectedCartItem } from "../components/cart/cartSlice";
 import { Navigate } from "react-router-dom";
-
+import { BASE_URL } from "../app/constant";
 function Payment() {
   const dispatch = useDispatch();
   const address = useSelector((state) => state.address);
@@ -22,16 +22,17 @@ function Payment() {
     const currentOrder = {
       orderItems: items,
     };
-    const stripe = await loadStripe(
-      "pk_test_51PuYDPEC6zxHPE2aEPreKwsWvL5oRdIhX1Ab8MuExcv5b1BA1enRomSpStQTP9zzALx1ymZFjCSBdtjOsmulDwnT00UEj80TEw"
+    const stripe = await loadStripe(import.meta.evn.VITE_PUBLISHABLE_KEY);
+    const response = await fetch(
+      `${BASE_URL}/api/payment/create-payment-intent`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ currentOrder }),
+      }
     );
-    const response = await fetch("/api/payment/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ currentOrder }),
-    });
     const session = await response.json();
     const result = stripe.redirectToCheckout({
       sessionId: session.id,

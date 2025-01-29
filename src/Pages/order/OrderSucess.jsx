@@ -6,7 +6,7 @@ import { clearCartItemAsync } from "../../components/cart/cartSlice";
 function OrderSucess() {
   const dispatch = useDispatch();
   const CurrentOrder = useSelector(selectOrder);
-  console.log(CurrentOrder);
+  // console.log(CurrentOrder);
   useEffect(() => {
     dispatch(clearCartItemAsync());
     dispatch(resetOrder());

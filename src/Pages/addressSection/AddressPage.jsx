@@ -26,7 +26,7 @@ function AddressPage() {
 
   const msg = useSelector(AddressMessage);
   const address = useSelector(selectedAddress);
-  console.log(address);
+  // console.log(address);
   const notify = () => {
     if (!msg) {
       toast.error("Please fill all the fields");

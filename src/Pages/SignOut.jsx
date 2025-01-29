@@ -8,7 +8,7 @@ import {
 
 function SignOut() {
   const user = useSelector(selectLoggedInUser);
-  console.log(user);
+  // console.log(user);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(signoutUserAsync());

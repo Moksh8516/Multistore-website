@@ -5,7 +5,7 @@ import { selectLoggedInUser } from "../components/auth/authSlice";
 import ProfileImg from "../assets/login.jpg";
 function MyProfile() {
   const user = useSelector(selectLoggedInUser);
-  console.log(user);
+  // console.log(user);
   return (
     <>
       {!user && <Navigate to={"/login"} />}

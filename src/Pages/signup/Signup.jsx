@@ -16,7 +16,7 @@ function Signup() {
     formState: { errors },
   } = useForm();
   const user = useSelector(selectLoggedInUser);
-  console.log(user);
+  // console.log(user);
   return (
     <>
       {user?.success === true && <Navigate to={"/"}></Navigate>}
